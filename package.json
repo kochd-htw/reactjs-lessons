@@ -6,11 +6,9 @@
   "repository": "https://github.com/kochd-htw/reactjs-lessons.git",
   "author": "Denny <166122821+kochd-htw@users.noreply.github.com>",
   "license": "MIT",
-  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "start": "cross-env DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "build": "react-scripts build"
   },
   "browserslist": {
     "production": [
@@ -25,11 +23,13 @@
     ]
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "8.0.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-react-app": "7.0.1",

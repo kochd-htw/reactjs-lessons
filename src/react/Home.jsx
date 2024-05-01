@@ -3,22 +3,18 @@ import React from 'react'
 import logo from '../assets/logo.svg'
 
 const Home = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
+  <div>
+    <header>
+      <img
+        src={logo}
+        alt="logo"
+        width="300"
+      />
       <p>
-        Edit
+        Edit&nbsp;
         <code>src/App.js</code>
-        and save to reload.
+        &nbsp;and save to reload.
       </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
     </header>
   </div>
 )
