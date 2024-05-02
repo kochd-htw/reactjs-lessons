@@ -19,14 +19,20 @@ const Home = () => {
     >
       {/*
         Variables, as long as they are numbers, strings or booleans,
-        can be rendered by enclosing them in {}
+        can be rendered by enclosing them in {}.
       */}
       <h1>
         {headline}
       </h1>
       {/*
+        For string concatenation, you should use "template literals".
+      */}
+      <h1>
+        {`This is a prefix to our: ${headline}`}
+      </h1>
+      {/*
         You can use expressions and logic operators inside the {}
-        to make the render output flexible
+        to make the render output flexible.
       */}
       <div style={{ marginBottom: '10px' }}>
         {
