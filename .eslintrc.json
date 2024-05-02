@@ -35,6 +35,10 @@
       "error",
       "as-needed"
     ],
+    "arrow-parens": [
+      "error",
+      "ad-needed"
+    ],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/function-component-definition": [

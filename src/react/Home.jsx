@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import catNames from './catNames'
 
 import Image from './Image'
 
 const Home = () => {
-  const headline = 'This is the headline.'
-  const loading = true
-  const images = ['image1', 'image2', 'image3']
+  /*
+    Components can be thought of as state-machines.
+    They hold a state and change their behaviour and render-output depending on it.
+    In order for your component to re-render after a state change, you must use a
+    react hook called useState
+  */
+  const [catName, setCatName] = useState(catNames())
+
+  const catIds = [
+    'FmTkbYVy0FSi4QBl',
+    '8hJ4kU7EtjB8Y203',
+    'JgWaCxZ0sz3yZ2Xz',
+    '2uWNSTyOg2IVBcAL'
+  ]
+
+  const handleChangeCOTD = () => {
+    setCatName(catNames())
+  }
 
   return (
     <div
@@ -17,41 +34,41 @@ const Home = () => {
         width: '100%'
       }}
     >
-      {/*
-        Variables, as long as they are numbers, strings or booleans,
-        can be rendered by enclosing them in {}.
-      */}
       <h1>
-        {headline}
+        Welcome to the best Cat-App on the internet.
       </h1>
-      {/*
-        For string concatenation, you should use "template literals".
-      */}
-      <h1>
-        {`This is a prefix to our: ${headline}`}
-      </h1>
-      {/*
-        You can use expressions and logic operators inside the {}
-        to make the render output flexible.
-      */}
-      <div style={{ marginBottom: '10px' }}>
-        {
-          loading
-            && <span>We are Loading</span>
-        }
-        {
-          !loading
-            && <span>This will not be shown</span>
-        }
+      <h3>
+        {`Cat-Of-The-Day is "${catName}"`}
+      </h3>
+      <div
+        style={{
+          marginTop: '15px',
+          marginBottom: '15px'
+        }}
+      >
+        <button onClick={handleChangeCOTD}>
+          Get another cat-of-the-day
+        </button>
       </div>
-      {/*
-        You can iterate over arrays with the map function
-        and return react components to be rendered.
-      */}
-      <div>
+      <div
+        style={{
+          display: 'flex'
+        }}
+      >
         {
-          images.map(() => (
-            <Image />
+          catIds.map(catId => (
+            /*
+              State can also propagated down the component tree to other components.
+              The syntax is the same as in HTML-Element's attributes.
+              In react these attributes are called props.
+            */
+            <Image src={`https://cataas.com/cat/${catId}?type=square`}>
+              <h5 style={{ marginTop: '5px' }}>
+                <i>
+                  {`Cat Id: ${catId}`}
+                </i>
+              </h5>
+            </Image>
           ))
         }
       </div>
