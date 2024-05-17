@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 
-import GeoForm from './GeoForm'
-import WeatherGraph from './WeatherGraph'
+import LoginForm from './LoginForm'
+import useFirebaseAuth from '../hooks/useFirebaseAuth'
 
-import useWeather from '../hooks/useWeather'
+// import useWeather from '../hooks/useWeather'
 
 const Home = () => {
-  const [lat, setLat] = useState('52.45')
-  const [long, setLong] = useState('13.52')
+  const [username, setUsername] = useState('')
+  const [password, setPassord] = useState('')
 
-  const { loading, weather } = useWeather(lat, long, 3000)
+  const { loading, user, loginUser } = useFirebaseAuth()
+
+  const handleLogin = () => {
+    loginUser(username, password)
+  }
 
   return (
     <div
@@ -22,7 +26,8 @@ const Home = () => {
       }}
     >
       <h1>
-        Welcome to the best Weather-App on the internet.
+        Welcome to the best Auth-App on the internet:
+        {user?.email}
       </h1>
       <div
         style={{
@@ -34,22 +39,23 @@ const Home = () => {
         }}
       >
         <h3 style={{ margin: 0 }}>
-          The current weather is:
+          Please login
         </h3>
         {
           loading
             && <b>Loading ...</b>
         }
-        {
-          (!loading && weather)
+        {/* {
+          !loading
             && <WeatherGraph weather={weather} />
-        }
+        } */}
       </div>
-      <GeoForm
-        lat={lat}
-        long={long}
-        onLatChange={setLat}
-        onLongChange={setLong}
+      <LoginForm
+        username={username}
+        password={password}
+        onUsernameChange={setUsername}
+        onPasswordChange={setPassord}
+        onLoginClicked={handleLogin}
       />
     </div>
   )

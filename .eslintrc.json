@@ -37,7 +37,7 @@
     ],
     "arrow-parens": [
       "error",
-      "ad-needed"
+      "as-needed"
     ],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
