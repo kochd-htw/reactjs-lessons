@@ -5,6 +5,8 @@ import { initializeApp } from 'firebase/app'
 
 import Home from './react/Home'
 
+// REPLACE WITH YOUR OWN FIREBASE PROJECT KEYS
+// I WILL REVOKE THIS KEY SOON!
 const firebaseConfig = {
   apiKey: 'AIzaSyAyo228op2lFfIYdJGAV8TW9OfHGat05Z4',
   authDomain: 'htw-test-app.firebaseapp.com',

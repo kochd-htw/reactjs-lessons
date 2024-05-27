@@ -4,8 +4,6 @@ import LoginForm from './LoginForm'
 
 import useFirebaseAuth from '../hooks/useFirebaseAuth'
 
-// import useWeather from '../hooks/useWeather'
-
 const Home = () => {
   const [username, setUsername] = useState('')
   const [password, setPassord] = useState('')
@@ -28,6 +26,11 @@ const Home = () => {
     >
       <h1>
         Welcome to the best Auth-App on the internet:
+        {/*
+          You can use this pattern, if the variable you want to access a member of
+          (in this case "user") can be undefined at some point.
+          This is equivalent to: if (user !== undefined) return user.email
+        */}
         {user?.email}
       </h1>
       <div
@@ -46,10 +49,6 @@ const Home = () => {
           loading
             && <b>Loading ...</b>
         }
-        {/* {
-          !loading
-            && <WeatherGraph weather={weather} />
-        } */}
       </div>
       <LoginForm
         username={username}
