@@ -79,7 +79,10 @@ const Home = () => {
               The syntax is the same as in HTML-Element's attributes.
               In react these attributes are called props.
             */
-            <Image src={`https://cataas.com/cat/${catId}?type=square`}>
+            <Image
+              key={`cat-${catId}`}
+              src={`https://cataas.com/cat/${catId}?type=square`}
+            >
               <h5 style={{ marginTop: '5px' }}>
                 <i>
                   {`Cat Id: ${catId}`}
