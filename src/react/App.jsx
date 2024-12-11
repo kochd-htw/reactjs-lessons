@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import { CssBaseline } from '@mui/material'
 
@@ -34,6 +36,8 @@ const root = createRoot(container)
 root.render(
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <AppLayout />
+    <Router>
+      <AppLayout />
+    </Router>
   </ThemeProvider>
 )
