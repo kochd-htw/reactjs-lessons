@@ -13,7 +13,7 @@ import {
 
 import {
   HealthAndSafety as HomeIcon,
-  Favorite as FavoriteIcon,
+  Pets as CatIcon,
   Person4 as ProfileIcon
 } from '@mui/icons-material'
 
@@ -28,6 +28,7 @@ const AppLayout = () => {
   const navigate = useNavigate()
 
   let navigationIndex = 0
+  if (location.pathname.startsWith('/catnames')) navigationIndex = 1
   if (location.pathname.startsWith('/profile')) navigationIndex = 2
 
   return (
@@ -106,8 +107,9 @@ const AppLayout = () => {
                 onClick={() => navigate('/')}
               />
               <BottomNavigationAction
-                label="Favorites"
-                icon={<FavoriteIcon />}
+                label="Cat Names"
+                icon={<CatIcon />}
+                onClick={() => navigate('/catnames')}
               />
               <BottomNavigationAction
                 label="Profile"
