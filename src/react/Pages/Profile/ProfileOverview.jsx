@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-import { Stack, Button } from '@mui/material'
+import { Stack, Button, Typography } from '@mui/material'
 import { AppSettingsAlt as SettingsIcon } from '@mui/icons-material'
+
+import ProfileContext from '../../Components/ProfileContext'
 
 const ProfileOverview = () => {
   const navigate = useNavigate()
+
+  // The context ensures to always return an object, so we can safely destructure it here.
+  const { name } = useContext(ProfileContext)
 
   return (
     <Stack
@@ -16,6 +21,13 @@ const ProfileOverview = () => {
         justifyContent: 'center'
       }}
     >
+      <Typography
+        variant="h4"
+        color="primary"
+        gutterBottom
+      >
+        {`Hello ${name}!`}
+      </Typography>
       <Button
         variant="contained"
         startIcon={<SettingsIcon />}
