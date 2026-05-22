@@ -10,6 +10,7 @@ const Home = () => (
       width: '100%'
     }}
   >
+    <h1>Änderugnen</h1>
     <Image />
   </div>
 )
